@@ -15,7 +15,7 @@ router.post("/", (request, response, next) => {
 });
 
 router.delete("/:varietal", (request, response, next) => {
-    queries.delete(request.params.id).then(() => {
+    queries.delete(request.params.varietal).then(() => {
         response.status(204).json({deleted: true});
     }).catch(next);
 });
