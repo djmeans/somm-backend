@@ -30,8 +30,8 @@ module.exports = {
           .returning("*")
           .then(record => record[0]);
   },
-  delete(id){
-    return knex("varietals").delete().where("id", id);
+  delete(varietal){
+    return knex("varietals").delete().where("varietal", varietal);
   }
 
 };
