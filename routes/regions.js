@@ -10,9 +10,9 @@ router.get(('/:id'),(req, res)=>{
     queries.getRegionById(req.params.id).then(region => res.json({ region }))
 })
 
-router.delete(('/:id'),(req, res) =>{
+router.delete(('/:id'),(req, res, next) =>{
     queries.delete(req.params.id).then(() => {
-        response.status(204).json({deleted: true});
+        res.status(204).json({deleted: true});
     }).catch(next);
 })
 
