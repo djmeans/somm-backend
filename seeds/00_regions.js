@@ -430,7 +430,7 @@ return knex('regions').del()
             },
             {
                 id: 48,
-                varietal:"tempranillo",
+                varietal:"Tempranillo",
                 country:"Spain",
                 region:"Rioja",
                 appelation: null,

@@ -7,6 +7,7 @@ exports.up = function (knex, Promise) {
         table.string('appelation')
         table.decimal('lat')
         table.decimal('long')
+        knex.raw('SELECT setval(\'regions_id_seq\', (SELECT MAX(id) from "regions"));')
     })
 };
 
