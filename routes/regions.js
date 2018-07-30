@@ -11,9 +11,14 @@ router.get(('/:id'),(req, res)=>{
 })
 
 router.delete(('/:id'),(req, res, next) =>{
-    queries.delete(req.params.id).then(() => {
+    queries.deleteRegion(req.params.id).then(() => {
         res.status(204).json({deleted: true});
     }).catch(next);
 })
+router.post("/", (request, response, next) => {
+    queries.create(request.body).then(varietal => {
+        response.status(201).json({varietal: varietal});
+    }).catch(next);
+});
 
 module.exports = router;
