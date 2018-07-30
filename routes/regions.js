@@ -16,8 +16,8 @@ router.delete(('/:id'),(req, res, next) =>{
     }).catch(next);
 })
 router.post("/", (request, response, next) => {
-    queries.create(request.body).then(varietal => {
-        response.status(201).json({varietal: varietal});
+    queries.createRegion(request.body).then(region => {
+        response.status(201).json({region: region});
     }).catch(next);
 });
 
