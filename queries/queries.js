@@ -36,7 +36,7 @@ module.exports = {
   deleteVarietal(varietal){
     return knex("regions").delete().where("varietal", varietal);
   },
-  create(region){
+  createRegion(region){
     return knex("regions")
     .insert(region)
     .returning('*')
