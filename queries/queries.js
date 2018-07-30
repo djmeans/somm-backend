@@ -28,7 +28,6 @@ module.exports = {
           .update(body)
           .where("varietal", varietal)
           .returning("*")
-          .then(record => record[0]);
   },
   deleteRegion(id){
     return knex("regions").delete().where("id", id);
@@ -41,6 +40,5 @@ module.exports = {
     .insert(region)
     .returning('*')
     .then(record => record[0]);
-  }
-
+  },
 };
