@@ -4,17 +4,24 @@ const queries = require('../queries/queries.js');
 
 router.get(('/'), (req, res) => {
     queries.getAllRegions().then(regions => res.json({ regions }))
-})
+});
 
 router.get(('/:id'),(req, res)=>{
     queries.getRegionById(req.params.id).then(region => res.json({ region }))
-})
+});
 
 router.delete(('/:id'),(req, res, next) =>{
     queries.deleteRegion(req.params.id).then(() => {
         res.status(204).json({deleted: true});
     }).catch(next);
-})
+});
+
+router.put("/:id", (request, response, next) => {
+    queries.update(request.params.id, request.body).then(region => {
+        response.json({region: region[0]});
+    }).catch(next);
+});
+
 router.post("/", (request, response, next) => {
     queries.createRegion(request.body).then(region => {
         response.status(201).json({region: region});

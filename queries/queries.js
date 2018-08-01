@@ -29,6 +29,12 @@ module.exports = {
           .where("varietal", varietal)
           .returning("*")
   },
+  updateRegion(id, body){
+    return knex("regions")
+          .update(body)
+          .where("id", id)
+          .returning("*")
+  },
   deleteRegion(id){
     return knex("regions").delete().where("id", id);
   },
